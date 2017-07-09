@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+        http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+    version="2.1">
+    
+    <entity class="fr.formation.cocktailbar.entity.Product">
+    	<table name="product"/>
+    	<attributes>
+    		<id name="id">
+    			<column name="id"/>
+    			<generated-value strategy="IDENTITY"/>
+    		</id>
+    		<basic name="name">
+    			<column name="name"/>
+    		</basic>
+    		<basic name="stock">
+    			<column name="stock"/>
+    		</basic>
+    	</attributes>
+    </entity>
+    
+     <entity class="fr.formation.cocktailbar.entity.Cocktail">
+    	<table name="cocktail"/>
+    	<attributes>
+    		<id name="id">
+    			<generated-value strategy="IDENTITY"/>
+    		</id>
+    		<basic name="name"/>
+    		<basic name="price"/>
+    		<basic name="withAlcohol"/>
+    	</attributes>
+    </entity>
+    
+    <entity class="fr.formation.cocktailbar.entity.Ingredient">
+    	<table name="ingredient"/>
+    	<attributes>
+    		<id name="id">
+    			<generated-value strategy="IDENTITY"/>
+    		</id>
+    		<basic name="quantity"/>
+    		<one-to-one name="cocktail">
+    			<join-column name="id_cocktail" referenced-column-name="id"/>
+    		</one-to-one>
+    		<one-to-one name="product">
+    			<join-column name="id_product" referenced-column-name="id"/>
+    		</one-to-one>
+    	</attributes>
+    </entity>
+    
+    <entity class="fr.formation.cocktailbar.entity.Role">
+    	<table name="role"/>
+    	<attributes>
+    		<id name="id">
+    			<generated-value strategy="IDENTITY"/>
+    		</id>
+    		<basic name="name"/>
+    	</attributes>
+    </entity>
+    
+    <entity class="fr.formation.cocktailbar.entity.Account">
+    	<table name="account"/>
+    	<attributes>
+    		<id name="id">
+    			<generated-value strategy="IDENTITY"/>
+    		</id>
+    		<basic name="username"/>
+    		<basic name="password"/>
+    		<basic name="enabled"/>
+    		<one-to-one name="role">
+    			<join-column name="id_role" referenced-column-name="id"/>
+    		</one-to-one>
+    	</attributes>
+    </entity>
+    
+</entity-mappings>
+
