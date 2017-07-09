@@ -30,5 +30,4 @@ public class MenuItem {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
 }

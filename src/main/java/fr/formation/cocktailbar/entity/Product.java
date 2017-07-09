@@ -13,19 +13,26 @@ public class Product {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public Integer getStock() {
 		return stock;
 	}
+	
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 
+	/**
+	 * HashCode based on <b>id</b> only for specific purpose
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -34,6 +41,9 @@ public class Product {
 		return result;
 	}
 
+	/**
+	 * Equals based on <b>id</b> only for specific purpose
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -55,7 +65,4 @@ public class Product {
 		}
 		return true;
 	}
-	
-	
-
 }

@@ -3,9 +3,11 @@ package fr.formation.cocktailbar.entity;
 public class Role {
 
 	private Integer id;
-
 	private String name;
-	
+
+	/**
+	 * Default constructor required for JPA pojo when overloaded
+	 */
 	public Role() {
 		
 	}
@@ -30,6 +32,9 @@ public class Role {
 		this.name = name;
 	}
 
+	/**
+	 * HashCode based on <b>id</b> only for specific purpose
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,6 +43,9 @@ public class Role {
 		return result;
 	}
 
+	/**
+	 * HashCode based on <b>id</b> only for specific purpose
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -59,5 +67,4 @@ public class Role {
 		}
 		return true;
 	}
-
 }
