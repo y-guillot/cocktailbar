@@ -3,3 +3,11 @@
 .selectedRow {
 	color: #2d8bd9;
 }
+
+.alert.fixed {
+	padding: .4rem;
+}
+
+.form-inline {
+	margin-bottom: 15px;
+}

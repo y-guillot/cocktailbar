@@ -18,13 +18,23 @@
     <!-- Scan all controllers in the specified package -->
     <context:component-scan base-package="fr.formation.cocktailbar.controller" />
     
+    <!-- Conversion service -->
+    <bean
+    	id="ConversionService"
+    	class="org.springframework.context.support.ConversionServiceFactoryBean">
+    	<property name="converters">
+    		<set>
+    			<bean class="fr.formation.cocktailbar.model.RoleConverter" />
+    		</set>
+    	</property>
+    </bean>
+    <mvc:annotation-driven conversion-service="ConversionService"/>
+    
     <!--
     	Let Srping mvc module handle specified routes instead of controllers
     	Tips : ** deals with full tree
     -->
-    <mvc:annotation-driven/>
     <mvc:resources location="/images/" mapping="/images/**"/>
-    <mvc:annotation-driven/>
     <mvc:resources location="/css/" mapping="/css/**"/>
     
     <!-- Set default viewResolver bean -->
